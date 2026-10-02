@@ -74,122 +74,38 @@ parsed_df = kafka_df \
     .selectExpr("CAST(value AS STRING) as json_string") \
     .select(from_json(col("json_string"), debezium_schema).alias("data"))
 
-query = parsed_df.writeStream \
-    .outputMode("append") \
-    .format("console") \
-    .option("truncate", "false") \
-    .start()
-
-query.awaitTermination()
-
-
-
-# 4. JSON Parse & Sütunlar (Düzgün id və name çıxarırıq)
-# parsed_df = kafka_df \
-#     .selectExpr("CAST(value AS STRING) as json_string") \
-#     .select(from_json(col("json_string"), debezium_schema).alias("data")) \
-#     .select(
-#         col("data.op").alias("operation"),
-#         # Əgər DELETE (d) olarsa 'before.id', əks halda 'after.id' götürülür
-#         col("data.after.id").alias("after_id"),
-#         col("data.after.name").alias("after_name"),
-#         col("data.before.id").alias("before_id"),
-#         # Birləşdirilmiş id və name sütunları yaradırıq ki, Delta-ya birbaşa yazıla bilsin:
-#         expr("CASE WHEN data.op = 'd' THEN data.before.id ELSE data.after.id END").alias("id"),
-#         expr("CASE WHEN data.op = 'd' THEN data.before.name ELSE data.after.name END").alias("name")
-#     )
-
-
-
-# # 5. Upsert (MERGE) Funksiyası
-# def upsert_to_delta(microBatchDF, batch_id):
-#     if microBatchDF.isEmpty():
-#         return
-    
-#     delta_path = "s3a://my-bucket/users"
-    
-#     # Əgər cədvəl artıq Delta cədvəlidirsə, MERGE edirik
-#     if DeltaTable.isDeltaTable(spark, delta_path):
-#         deltaTable = DeltaTable.forPath(spark, delta_path)
-        
-#         deltaTable.alias("target").merge(
-#             microBatchDF.alias("source"),
-#             "target.id = source.id"
-#         ) \
-#         .whenMatchedDelete(condition="source.operation = 'd'") \
-#         .whenMatchedUpdate(
-#             condition="source.operation != 'd'",
-#             set={"id": "source.id", "name": "source.name"}
-#         ) \
-#         .whenNotMatchedInsert(
-#             condition="source.operation != 'd'",
-#             values={"id": "source.id", "name": "source.name"}
-#         ) \
-#         .execute()
-#     else:
-#         # Cədvəl ilk dəfə yaranırsa: silinməmiş (c/u) sətirləri yazırıq
-#         initial_df = microBatchDF.filter("operation != 'd'").select("id", "name")
-#         initial_df.write.format("delta").mode("append").save(delta_path)
-
-# # 6. Streaming-i başladırıq
-# query = parsed_df.writeStream \
-#     .foreachBatch(upsert_to_delta) \
-#     .option("checkpointLocation", "s3a://my-bucket/checkpoints") \
-#     .start()
-
-# query.awaitTermination()
-
-
-
-
-
-
-
-
-
-
-# # 4. Kafka-dan gələn binary 'value' dəyərini JSON-a və sütunlara çeviririk
-# parsed_df = kafka_df \
-#     .selectExpr("CAST(value AS STRING) as json_string") \
-#     .select(from_json(col("json_string"), debezium_schema).alias("data")) \
-#     .select(
-#         col("data.op").alias("operation"),
-#         col("data.source.ts_ms").alias("event_timestamp"),
-#         # Əgər delete-dirsə 'before' içindəki ID-ni, yoxsa 'after' içindəki ID-ni götürürük
-#         col("data.after.id").alias("after_id"),
-#         col("data.after.name").alias("after_name"),
-#         col("data.before.id").alias("before_id"),
-#         col("data.before.name").alias("before_name")
-#     )
-
-# # 5. Konsola (terminala) çıxarırıq (Hər yeni məlumat gələndə cədvəl kimi göstərəcək)
 # query = parsed_df.writeStream \
 #     .outputMode("append") \
 #     .format("console") \
 #     .option("truncate", "false") \
 #     .start()
 
+def upsert_to_delta(microBatchDF, batch_id):
+    cleaned_batch = microBatchDF.select(
+        expr("CASE WHEN data.op = 'd' THEN data.before.id ELSE data.after.id END").alias("id"),
+        col("data.after.name").alias("name"),
+        col("data.after.created_at").alias("created_at"),
+        col("data.after.updated_at").alias("updated_at"),
+        col("data.op").alias("op")
+    ).filter("id IS NOT NULL")
 
-# def upsert_to_delta(microBatchDF, batch_id):
-#     # 1. Hər batch daxilində deduplication edirik
-#     # 2. MinIO-dakı Delta cədvəli ilə MERGE (Upsert) edirik
-#     if DeltaTable.isDeltaTable(spark, "s3a://my-bucket/users"):
-#         deltaTable = DeltaTable.forPath(spark, "s3a://my-bucket/users")
-        
-#         deltaTable.alias("target").merge(
-#             microBatchDF.alias("source"),
-#             "target.id = source.id"
-#         ).whenMatchedUpdateAll() \
-#         .whenNotMatchedInsertAll() \
-#         .execute()
-#     else:
-#         microBatchDF.write.format("delta").mode("append").save("s3a://my-bucket/users")
+    # 1. Hər batch daxilində deduplication edirik
+    # 2. MinIO-dakı Delta cədvəli ilə MERGE (Upsert) edirik
+    if DeltaTable.isDeltaTable(spark, "s3a://my-bucket/users"):
+        deltaTable = DeltaTable.forPath(spark, "s3a://my-bucket/users")
+        deltaTable.alias("target").merge(cleaned_batch.alias("source"),"target.id = source.id")\
+            .whenMatchedDelete(condition = "source.op = 'd'") \
+            .whenMatchedUpdateAll(condition = "source.op != 'd'") \
+            .whenNotMatchedInsertAll(condition = "source.op != 'd'") \
+            .execute()
+    else:
+        microBatchDF.write.format("delta").mode("append").save("s3a://my-bucket/users")
 
-# # Streaming-i başladırıq:
-# query = parsed_df.writeStream \
-#     .foreachBatch(upsert_to_delta) \
-#     .option("checkpointLocation", "s3a://my-bucket/checkpoints") \
-#     .start()
-# # butun axınılarin daimi açıq qalması üçün gözləyirik
-# spark.streams.awaitAnyTermination()
-# spark.stop()
+# Streaming-i başladırıq:
+query = parsed_df.writeStream \
+    .foreachBatch(upsert_to_delta) \
+    .option("checkpointLocation", "s3a://my-bucket/checkpoints") \
+    .start()
+# butun axınılarin daimi açıq qalması üçün gözləyirik
+query.awaitTermination()
+

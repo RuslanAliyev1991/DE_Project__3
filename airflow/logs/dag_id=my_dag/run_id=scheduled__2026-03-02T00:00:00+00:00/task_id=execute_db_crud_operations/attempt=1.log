@@ -1,0 +1,360 @@
+[2026-07-21T12:15:08.170+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:15:08.196+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:08.203+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:08.203+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:15:08.215+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:15:08.221+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp6qy0f5ut']
+[2026-07-21T12:15:08.223+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-21T12:15:08.223+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=314) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:15:08.223+0000] {standard_task_runner.py:72} INFO - Started process 315 to run task
+[2026-07-21T12:15:08.258+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host e045af74193e
+[2026-07-21T12:15:08.314+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:15:08.315+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:15:08.326+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-21T12:15:08.327+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-21T12:15:08.333+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 2, 3, 4
+[2026-07-21T12:15:08.334+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir yeniləndi (UPDATE).
+[2026-07-21T12:15:08.334+0000] {logging_mixin.py:190} INFO - --> ID=4 olan sətir silindi (DELETE).
+[2026-07-21T12:15:08.337+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-21T12:15:08.337+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-21T12:15:08.347+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:15:08.348+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T121508, end_date=20260721T121508
+[2026-07-21T12:15:08.396+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:15:08.414+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:15:08.418+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T12:21:02.292+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:21:02.307+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:21:02.314+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:21:02.314+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:21:02.325+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:21:02.331+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp4wzsrns6']
+[2026-07-21T12:21:02.332+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-21T12:21:02.333+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=215) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:21:02.333+0000] {standard_task_runner.py:72} INFO - Started process 216 to run task
+[2026-07-21T12:21:02.366+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 51918a79e420
+[2026-07-21T12:21:02.436+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:21:02.436+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:21:02.446+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-21T12:21:02.447+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-21T12:21:02.453+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-21T12:21:02.454+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-21T12:21:02.454+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-21T12:21:02.457+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-21T12:21:02.457+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-21T12:21:02.468+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:21:02.468+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T122102, end_date=20260721T122102
+[2026-07-21T12:21:02.507+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:21:02.520+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:21:02.523+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T05:14:35.626+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T05:14:35.654+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:35.664+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:35.665+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T05:14:35.676+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-22T05:14:35.684+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpkv5uasg2']
+[2026-07-22T05:14:35.686+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-22T05:14:35.687+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=222) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T05:14:35.688+0000] {standard_task_runner.py:72} INFO - Started process 223 to run task
+[2026-07-22T05:14:35.727+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 304f8cefaac6
+[2026-07-22T05:14:35.784+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T05:14:35.784+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T05:14:35.793+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-22T05:14:35.794+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-22T05:14:35.799+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-22T05:14:35.799+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-22T05:14:35.800+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-22T05:14:35.802+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-22T05:14:35.802+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-22T05:14:35.811+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T05:14:35.811+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T051435, end_date=20260722T051435
+[2026-07-22T05:14:35.862+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T05:14:35.887+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T05:14:35.890+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T08:08:45.390+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T08:08:45.407+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:45.413+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:45.414+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T08:08:45.428+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-22T08:08:45.435+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpceuvzry1']
+[2026-07-22T08:08:45.437+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-22T08:08:45.437+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T08:08:45.437+0000] {standard_task_runner.py:72} INFO - Started process 210 to run task
+[2026-07-22T08:08:45.472+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 00ae91de1981
+[2026-07-22T08:08:45.531+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T08:08:45.532+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T08:08:45.542+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-22T08:08:45.543+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-22T08:08:45.548+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-22T08:08:45.549+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-22T08:08:45.549+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-22T08:08:45.556+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-22T08:08:45.556+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-22T08:08:45.565+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T08:08:45.565+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T080845, end_date=20260722T080845
+[2026-07-22T08:08:45.611+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T08:08:45.625+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T08:08:45.627+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T09:14:26.406+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T09:14:26.437+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:26.447+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:26.447+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T09:14:26.464+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-22T09:14:26.473+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmph51gzvl8']
+[2026-07-22T09:14:26.474+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-22T09:14:26.476+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=215) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T09:14:26.477+0000] {standard_task_runner.py:72} INFO - Started process 216 to run task
+[2026-07-22T09:14:26.518+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host c23decc08e67
+[2026-07-22T09:14:26.739+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T09:14:26.740+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T09:14:26.756+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-22T09:14:26.757+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-22T09:14:26.763+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-22T09:14:26.765+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-22T09:14:26.765+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-22T09:14:26.767+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-22T09:14:26.768+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-22T09:14:26.775+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T09:14:26.776+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T091426, end_date=20260722T091426
+[2026-07-22T09:14:26.811+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T09:14:26.825+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T09:14:26.828+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T05:05:53.551+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T05:05:53.578+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:53.594+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:53.594+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T05:05:53.612+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T05:05:53.617+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmptovhu1jl']
+[2026-07-24T05:05:53.618+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T05:05:53.619+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=214) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T05:05:53.619+0000] {standard_task_runner.py:72} INFO - Started process 215 to run task
+[2026-07-24T05:05:53.671+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 155c7c53ba3f
+[2026-07-24T05:05:53.741+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T05:05:53.741+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T05:05:53.751+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T05:05:53.752+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T05:05:53.759+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T05:05:53.760+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T05:05:53.760+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T05:05:53.763+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T05:05:53.763+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T05:05:53.778+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T05:05:53.779+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T050553, end_date=20260724T050553
+[2026-07-24T05:05:53.833+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T05:05:53.851+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T05:05:53.855+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:08:56.536+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:08:56.555+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:56.563+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:56.563+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:08:56.577+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:08:56.583+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpwpc2dp47']
+[2026-07-24T08:08:56.585+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T08:08:56.586+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=210) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:08:56.587+0000] {standard_task_runner.py:72} INFO - Started process 211 to run task
+[2026-07-24T08:08:56.623+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 958577a88513
+[2026-07-24T08:08:56.697+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:08:56.698+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:08:56.708+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T08:08:56.708+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T08:08:56.713+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T08:08:56.714+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T08:08:56.714+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T08:08:56.720+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T08:08:56.720+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T08:08:56.730+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:08:56.730+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T080856, end_date=20260724T080856
+[2026-07-24T08:08:56.764+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:08:56.781+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:08:56.785+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:31:39.603+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:31:39.620+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:39.627+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:39.627+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:31:39.639+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:31:39.644+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpitg03o_e']
+[2026-07-24T08:31:39.645+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T08:31:39.646+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=216) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:31:39.647+0000] {standard_task_runner.py:72} INFO - Started process 217 to run task
+[2026-07-24T08:31:39.683+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host efd5a11a536a
+[2026-07-24T08:31:39.745+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:31:39.745+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:31:39.755+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T08:31:39.755+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T08:31:47.761+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T08:31:50.763+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T08:31:50.765+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T08:31:50.775+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T08:31:50.777+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T08:31:50.800+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:31:50.800+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T083139, end_date=20260724T083150
+[2026-07-24T08:31:50.858+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:31:50.882+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:31:50.885+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T09:31:55.590+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T09:31:55.607+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:55.615+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:55.615+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T09:31:55.626+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T09:31:55.632+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpx77_c2hy']
+[2026-07-24T09:31:55.633+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T09:31:55.634+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=217) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T09:31:55.634+0000] {standard_task_runner.py:72} INFO - Started process 218 to run task
+[2026-07-24T09:31:55.673+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05e5f5f209db
+[2026-07-24T09:31:55.732+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T09:31:55.733+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T09:31:55.743+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T09:31:55.743+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T09:32:03.750+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T09:32:06.752+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T09:32:06.753+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T09:32:06.764+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T09:32:06.764+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T09:32:06.786+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T09:32:06.786+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T093155, end_date=20260724T093206
+[2026-07-24T09:32:06.840+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T09:32:06.852+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T09:32:06.854+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:14:23.859+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:14:23.879+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:23.887+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:23.887+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:14:23.900+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:14:23.905+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpobdss0i6']
+[2026-07-24T10:14:23.907+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T10:14:23.908+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=216) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:14:23.908+0000] {standard_task_runner.py:72} INFO - Started process 217 to run task
+[2026-07-24T10:14:23.947+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 11eea0c5cb97
+[2026-07-24T10:14:24.013+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:14:24.013+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:14:24.024+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T10:14:24.025+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T10:14:32.031+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T10:14:35.032+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T10:14:35.033+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T10:14:35.036+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T10:14:35.036+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T10:14:35.045+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:14:35.046+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T101423, end_date=20260724T101435
+[2026-07-24T10:14:35.089+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:14:35.100+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:14:35.103+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:37:58.085+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:37:58.102+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:58.109+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:58.110+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:37:58.121+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:37:58.127+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpzt4xhwb2']
+[2026-07-24T10:37:58.129+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-24T10:37:58.129+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=216) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:37:58.130+0000] {standard_task_runner.py:72} INFO - Started process 217 to run task
+[2026-07-24T10:37:58.167+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 4d7558f7fc1a
+[2026-07-24T10:37:58.232+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:37:58.233+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:37:58.243+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-24T10:37:58.244+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-24T10:38:06.250+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-24T10:38:09.255+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-24T10:38:09.256+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-24T10:38:09.259+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-24T10:38:09.260+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-24T10:38:09.278+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:38:09.279+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T103758, end_date=20260724T103809
+[2026-07-24T10:38:09.360+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:38:09.376+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:38:09.379+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-25T14:28:57.198+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-25T14:28:57.231+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:57.239+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:57.240+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-25T14:28:57.252+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-07-25T14:28:57.257+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpz5g0m1i0']
+[2026-07-25T14:28:57.259+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-07-25T14:28:57.259+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=210) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-25T14:28:57.260+0000] {standard_task_runner.py:72} INFO - Started process 211 to run task
+[2026-07-25T14:28:57.301+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05256ee4a620
+[2026-07-25T14:28:57.366+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-25T14:28:57.366+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-25T14:28:57.376+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-07-25T14:28:57.376+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-07-25T14:29:05.385+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-07-25T14:29:08.386+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-07-25T14:29:08.386+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-07-25T14:29:08.389+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-07-25T14:29:08.389+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-07-25T14:29:08.399+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-25T14:29:08.400+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260725T142857, end_date=20260725T142908
+[2026-07-25T14:29:08.441+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-25T14:29:08.456+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-25T14:29:08.459+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T03:45:29.518+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T03:45:29.535+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:29.542+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:29.542+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T03:45:29.555+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-10-01T03:45:29.560+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmphz1th9sa']
+[2026-10-01T03:45:29.562+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-10-01T03:45:29.562+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T03:45:29.563+0000] {standard_task_runner.py:72} INFO - Started process 210 to run task
+[2026-10-01T03:45:29.604+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 9c7342376556
+[2026-10-01T03:45:29.665+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T03:45:29.665+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T03:45:29.675+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-10-01T03:45:29.675+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-10-01T03:45:37.682+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-10-01T03:45:40.684+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-10-01T03:45:40.685+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-10-01T03:45:40.700+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-10-01T03:45:40.700+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-01T03:45:40.719+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T03:45:40.720+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T034529, end_date=20261001T034540
+[2026-10-01T03:45:40.772+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T03:45:40.790+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T03:45:40.793+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T16:19:01.855+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T16:19:01.874+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:19:01.886+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:19:01.887+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T16:19:01.903+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-10-01T16:19:01.908+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpw8bqrl8j']
+[2026-10-01T16:19:01.911+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-10-01T16:19:01.913+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=282) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T16:19:01.913+0000] {standard_task_runner.py:72} INFO - Started process 283 to run task
+[2026-10-01T16:19:01.956+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host f7ca9e84c53b
+[2026-10-01T16:19:02.038+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T16:19:02.039+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T16:19:02.055+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-10-01T16:19:02.056+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-10-01T16:19:10.064+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-10-01T16:19:13.066+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-10-01T16:19:13.067+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-10-01T16:19:13.070+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-10-01T16:19:13.070+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-01T16:19:13.079+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T16:19:13.079+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T161901, end_date=20261001T161913
+[2026-10-01T16:19:13.123+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T16:19:13.137+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T16:19:13.140+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T19:06:49.850+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T19:06:49.869+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:49.879+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:49.880+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T19:06:49.891+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_db_crud_operations> on 2026-03-02 00:00:00+00:00
+[2026-10-01T19:06:49.899+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'execute_db_crud_operations', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp3_oue0f6']
+[2026-10-01T19:06:49.900+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask execute_db_crud_operations
+[2026-10-01T19:06:49.901+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=281) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T19:06:49.901+0000] {standard_task_runner.py:72} INFO - Started process 282 to run task
+[2026-10-01T19:06:49.949+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.execute_db_crud_operations scheduled__2026-03-02T00:00:00+00:00 [running]> on host 7cf5f159a957
+[2026-10-01T19:06:50.020+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='execute_db_crud_operations' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T19:06:50.021+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T19:06:50.034+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-10-01T19:06:50.034+0000] {base.py:84} INFO - Retrieving connection 'POSTGRES_CONNECTION'
+[2026-10-01T19:06:58.042+0000] {logging_mixin.py:190} INFO - --> 3 sətir uğurla əlavə olundu. ID-lər: 1, 2, 3
+[2026-10-01T19:07:01.045+0000] {logging_mixin.py:190} INFO - --> ID=2 olan sətir yeniləndi (UPDATE).
+[2026-10-01T19:07:01.045+0000] {logging_mixin.py:190} INFO - --> ID=3 olan sətir silindi (DELETE).
+[2026-10-01T19:07:01.056+0000] {logging_mixin.py:190} INFO - --> Bütün əməliyyatlar uğurla bazaya yazıldı (COMMITTED).
+[2026-10-01T19:07:01.057+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-01T19:07:01.083+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T19:07:01.085+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=execute_db_crud_operations, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T190649, end_date=20261001T190701
+[2026-10-01T19:07:01.215+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T19:07:01.250+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T19:07:01.255+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

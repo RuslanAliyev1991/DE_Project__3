@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS my_test (
+    id          SERIAL PRIMARY KEY,
+    name        VARCHAR(20)    NOT NULL,
+    created_at  TIMESTAMP      NOT NULL DEFAULT CLOCK_TIMESTAMP(),
+    updated_at  TIMESTAMP      NOT NULL DEFAULT CLOCK_TIMESTAMP()
+);

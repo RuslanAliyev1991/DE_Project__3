@@ -1,0 +1,810 @@
+[2026-07-18T13:48:04.982+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-18T13:48:05.004+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-18T13:48:05.015+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-18T13:48:05.015+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-18T13:48:05.030+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-18T13:48:05.037+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpyacj1_61']
+[2026-07-18T13:48:05.041+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-18T13:48:05.045+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-18T13:48:05.045+0000] {standard_task_runner.py:72} INFO - Started process 204 to run task
+[2026-07-18T13:48:05.090+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host d64076e39d36
+[2026-07-18T13:48:05.167+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-18T13:48:05.168+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-18T13:48:05.182+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-18T13:48:05.182+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-18T13:48:05.195+0000] {subprocess.py:99} INFO - Output:
+[2026-07-18T13:48:05.425+0000] {subprocess.py:106} INFO - {
+[2026-07-18T13:48:05.426+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-18T13:48:05.426+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-18T13:48:05.426+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-18T13:48:05.426+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-18T13:48:05.427+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-18T13:48:05.427+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-18T13:48:05.427+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-18T13:48:05.427+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-18T13:48:05.427+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-18T13:48:05.428+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -     },
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-18T13:48:05.429+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-18T13:48:05.430+0000] {subprocess.py:106} INFO - }
+[2026-07-18T13:48:05.431+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-18T13:48:05.474+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-18T13:48:05.475+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260718T134805, end_date=20260718T134805
+[2026-07-18T13:48:05.542+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-18T13:48:05.572+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-18T13:48:05.578+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T11:16:36.331+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T11:16:36.349+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:16:36.357+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:16:36.357+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T11:16:36.369+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-21T11:16:36.376+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpggmz4chy']
+[2026-07-21T11:16:36.377+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-21T11:16:36.380+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T11:16:36.380+0000] {standard_task_runner.py:72} INFO - Started process 203 to run task
+[2026-07-21T11:16:36.414+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 6ee605b05b09
+[2026-07-21T11:16:36.481+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T11:16:36.482+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T11:16:36.495+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-21T11:16:36.495+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-21T11:16:36.503+0000] {subprocess.py:99} INFO - Output:
+[2026-07-21T11:16:42.865+0000] {subprocess.py:106} INFO - {
+[2026-07-21T11:16:42.866+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-21T11:16:42.866+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-21T11:16:42.867+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-21T11:16:42.867+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-21T11:16:42.867+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-21T11:16:42.867+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-21T11:16:42.868+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-21T11:16:42.869+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-21T11:16:42.870+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-21T11:16:42.870+0000] {subprocess.py:106} INFO -     },
+[2026-07-21T11:16:42.870+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-21T11:16:42.870+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-21T11:16:42.870+0000] {subprocess.py:106} INFO - }
+[2026-07-21T11:16:42.874+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-21T11:16:42.932+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T11:16:42.932+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T111636, end_date=20260721T111642
+[2026-07-21T11:16:43.008+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T11:16:43.028+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T11:16:43.032+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T11:36:24.325+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T11:36:24.346+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:36:24.354+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:36:24.354+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T11:36:24.365+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-21T11:36:24.371+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmprn44cxwj']
+[2026-07-21T11:36:24.373+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-21T11:36:24.375+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=201) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T11:36:24.375+0000] {standard_task_runner.py:72} INFO - Started process 202 to run task
+[2026-07-21T11:36:24.419+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host b9659a24e611
+[2026-07-21T11:36:24.499+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T11:36:24.500+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T11:36:24.514+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-21T11:36:24.514+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-21T11:36:24.524+0000] {subprocess.py:99} INFO - Output:
+[2026-07-21T11:36:41.441+0000] {subprocess.py:106} INFO - {
+[2026-07-21T11:36:41.441+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-21T11:36:41.441+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-21T11:36:41.441+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-21T11:36:41.442+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-21T11:36:41.443+0000] {subprocess.py:106} INFO -     },
+[2026-07-21T11:36:41.444+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-21T11:36:41.444+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-21T11:36:41.444+0000] {subprocess.py:106} INFO - }
+[2026-07-21T11:36:41.448+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-21T11:36:41.490+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T11:36:41.490+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T113624, end_date=20260721T113641
+[2026-07-21T11:36:41.529+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T11:36:41.544+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T11:36:41.548+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T12:15:07.038+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:15:07.063+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:07.072+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:07.073+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:15:07.087+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:15:07.096+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp8o03zogx']
+[2026-07-21T12:15:07.098+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-21T12:15:07.098+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=307) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:15:07.099+0000] {standard_task_runner.py:72} INFO - Started process 308 to run task
+[2026-07-21T12:15:07.137+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host e045af74193e
+[2026-07-21T12:15:07.203+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:15:07.204+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:15:07.215+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-21T12:15:07.216+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-21T12:15:07.224+0000] {subprocess.py:99} INFO - Output:
+[2026-07-21T12:15:07.456+0000] {subprocess.py:106} INFO - {
+[2026-07-21T12:15:07.457+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-21T12:15:07.458+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-21T12:15:07.458+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-21T12:15:07.458+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-21T12:15:07.459+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-21T12:15:07.460+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-21T12:15:07.460+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-21T12:15:07.460+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-21T12:15:07.460+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T12:15:07.460+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -     },
+[2026-07-21T12:15:07.461+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-21T12:15:07.462+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-21T12:15:07.462+0000] {subprocess.py:106} INFO - }
+[2026-07-21T12:15:07.468+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-21T12:15:07.517+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:15:07.518+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T121507, end_date=20260721T121507
+[2026-07-21T12:15:07.595+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:15:07.627+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:15:07.632+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T12:20:45.247+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:20:45.266+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:20:45.275+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:20:45.275+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:20:45.287+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:20:45.294+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp0z59dg2u']
+[2026-07-21T12:20:45.296+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-21T12:20:45.297+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:20:45.297+0000] {standard_task_runner.py:72} INFO - Started process 203 to run task
+[2026-07-21T12:20:45.338+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 51918a79e420
+[2026-07-21T12:20:45.409+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:20:45.410+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:20:45.422+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-21T12:20:45.422+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-21T12:20:45.433+0000] {subprocess.py:99} INFO - Output:
+[2026-07-21T12:21:01.691+0000] {subprocess.py:106} INFO - {
+[2026-07-21T12:21:01.692+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-21T12:21:01.692+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-21T12:21:01.692+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-21T12:21:01.693+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-21T12:21:01.694+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-21T12:21:01.694+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-21T12:21:01.694+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-21T12:21:01.694+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-21T12:21:01.695+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-21T12:21:01.696+0000] {subprocess.py:106} INFO -     },
+[2026-07-21T12:21:01.696+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-21T12:21:01.696+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-21T12:21:01.696+0000] {subprocess.py:106} INFO - }
+[2026-07-21T12:21:01.700+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-21T12:21:01.740+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:21:01.740+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T122045, end_date=20260721T122101
+[2026-07-21T12:21:01.783+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:21:01.809+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:21:01.847+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T05:14:15.666+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T05:14:15.702+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:15.714+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:15.714+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T05:14:15.728+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-22T05:14:15.734+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpln1vwkzs']
+[2026-07-22T05:14:15.736+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-22T05:14:15.738+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T05:14:15.738+0000] {standard_task_runner.py:72} INFO - Started process 210 to run task
+[2026-07-22T05:14:15.777+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 304f8cefaac6
+[2026-07-22T05:14:15.861+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T05:14:15.862+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T05:14:15.880+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-22T05:14:15.881+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-22T05:14:15.900+0000] {subprocess.py:99} INFO - Output:
+[2026-07-22T05:14:35.150+0000] {subprocess.py:106} INFO - {
+[2026-07-22T05:14:35.151+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-22T05:14:35.151+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-22T05:14:35.152+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-22T05:14:35.152+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-22T05:14:35.152+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-22T05:14:35.152+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-22T05:14:35.153+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-22T05:14:35.153+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-22T05:14:35.153+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-22T05:14:35.153+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-22T05:14:35.153+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-22T05:14:35.154+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO -     },
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-22T05:14:35.155+0000] {subprocess.py:106} INFO - }
+[2026-07-22T05:14:35.158+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-22T05:14:35.189+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T05:14:35.190+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T051415, end_date=20260722T051435
+[2026-07-22T05:14:35.257+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T05:14:35.281+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T05:14:35.284+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T08:08:44.287+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T08:08:44.307+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:44.316+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:44.316+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T08:08:44.329+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-22T08:08:44.335+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp9hfbgyix']
+[2026-07-22T08:08:44.337+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-22T08:08:44.338+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T08:08:44.339+0000] {standard_task_runner.py:72} INFO - Started process 203 to run task
+[2026-07-22T08:08:44.375+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 00ae91de1981
+[2026-07-22T08:08:44.439+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T08:08:44.440+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T08:08:44.449+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-22T08:08:44.450+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-22T08:08:44.457+0000] {subprocess.py:99} INFO - Output:
+[2026-07-22T08:08:44.675+0000] {subprocess.py:106} INFO - {
+[2026-07-22T08:08:44.676+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-22T08:08:44.676+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-22T08:08:44.676+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-22T08:08:44.676+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-22T08:08:44.677+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-22T08:08:44.678+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-22T08:08:44.678+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-22T08:08:44.678+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-22T08:08:44.678+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T08:08:44.678+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -     },
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-22T08:08:44.679+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-22T08:08:44.680+0000] {subprocess.py:106} INFO - }
+[2026-07-22T08:08:44.682+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-22T08:08:44.722+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T08:08:44.722+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T080844, end_date=20260722T080844
+[2026-07-22T08:08:44.793+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T08:08:44.820+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T08:08:44.827+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T09:14:25.264+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T09:14:25.285+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:25.293+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:25.294+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T09:14:25.306+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-22T09:14:25.312+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpoj39k7gm']
+[2026-07-22T09:14:25.313+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-22T09:14:25.314+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T09:14:25.315+0000] {standard_task_runner.py:72} INFO - Started process 203 to run task
+[2026-07-22T09:14:25.355+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host c23decc08e67
+[2026-07-22T09:14:25.422+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T09:14:25.423+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T09:14:25.432+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-22T09:14:25.433+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-22T09:14:25.441+0000] {subprocess.py:99} INFO - Output:
+[2026-07-22T09:14:25.657+0000] {subprocess.py:106} INFO - {
+[2026-07-22T09:14:25.657+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-22T09:14:25.658+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-22T09:14:25.658+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-22T09:14:25.658+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-22T09:14:25.658+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-22T09:14:25.659+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-22T09:14:25.660+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO -     },
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-22T09:14:25.661+0000] {subprocess.py:106} INFO - }
+[2026-07-22T09:14:25.664+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-22T09:14:25.704+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T09:14:25.705+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T091425, end_date=20260722T091425
+[2026-07-22T09:14:25.769+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T09:14:25.800+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T09:14:25.808+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T05:05:44.684+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T05:05:44.702+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:44.710+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:44.710+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T05:05:44.722+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T05:05:44.727+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmphx5uzw7f']
+[2026-07-24T05:05:44.729+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T05:05:44.729+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=201) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T05:05:44.730+0000] {standard_task_runner.py:72} INFO - Started process 202 to run task
+[2026-07-24T05:05:44.765+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 155c7c53ba3f
+[2026-07-24T05:05:44.827+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T05:05:44.828+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T05:05:44.838+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T05:05:44.839+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T05:05:44.845+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T05:05:53.227+0000] {subprocess.py:106} INFO - {
+[2026-07-24T05:05:53.227+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T05:05:53.227+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T05:05:53.228+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T05:05:53.228+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T05:05:53.228+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T05:05:53.228+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T05:05:53.228+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T05:05:53.229+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T05:05:53.229+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T05:05:53.229+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T05:05:53.229+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T05:05:53.229+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T05:05:53.230+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T05:05:53.231+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T05:05:53.231+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T05:05:53.231+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T05:05:53.231+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T05:05:53.231+0000] {subprocess.py:106} INFO - }
+[2026-07-24T05:05:53.234+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T05:05:53.266+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T05:05:53.266+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T050544, end_date=20260724T050553
+[2026-07-24T05:05:53.317+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T05:05:53.347+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T05:05:53.350+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:08:48.695+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:08:48.713+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:48.721+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:48.722+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:08:48.734+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:08:48.740+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmplh2myhnt']
+[2026-07-24T08:08:48.741+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T08:08:48.742+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:08:48.742+0000] {standard_task_runner.py:72} INFO - Started process 204 to run task
+[2026-07-24T08:08:48.778+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 958577a88513
+[2026-07-24T08:08:48.839+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:08:48.839+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:08:48.848+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T08:08:48.849+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T08:08:48.855+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T08:08:55.558+0000] {subprocess.py:106} INFO - {
+[2026-07-24T08:08:55.558+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T08:08:55.558+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T08:08:55.558+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T08:08:55.559+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T08:08:55.560+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T08:08:55.561+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T08:08:55.561+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T08:08:55.561+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T08:08:55.561+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T08:08:55.561+0000] {subprocess.py:106} INFO - }
+[2026-07-24T08:08:55.566+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T08:08:55.597+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:08:55.598+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T080848, end_date=20260724T080855
+[2026-07-24T08:08:55.686+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:08:55.705+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:08:55.708+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:31:31.795+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:31:31.815+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:31.823+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:31.823+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:31:31.838+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:31:31.843+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp5xnhdtl8']
+[2026-07-24T08:31:31.845+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T08:31:31.845+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:31:31.846+0000] {standard_task_runner.py:72} INFO - Started process 204 to run task
+[2026-07-24T08:31:31.882+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host efd5a11a536a
+[2026-07-24T08:31:31.945+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:31:31.946+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:31:31.956+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T08:31:31.956+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T08:31:31.964+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T08:31:38.887+0000] {subprocess.py:106} INFO - {
+[2026-07-24T08:31:38.888+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T08:31:38.888+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T08:31:38.888+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T08:31:38.888+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T08:31:38.888+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T08:31:38.889+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T08:31:38.890+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T08:31:38.891+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T08:31:38.891+0000] {subprocess.py:106} INFO - }
+[2026-07-24T08:31:38.895+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T08:31:38.929+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:31:38.929+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T083131, end_date=20260724T083138
+[2026-07-24T08:31:38.995+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:31:39.017+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:31:39.019+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T09:31:46.449+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T09:31:46.466+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:46.474+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:46.474+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T09:31:46.485+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T09:31:46.490+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpukjx6q8k']
+[2026-07-24T09:31:46.492+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T09:31:46.492+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=204) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T09:31:46.493+0000] {standard_task_runner.py:72} INFO - Started process 205 to run task
+[2026-07-24T09:31:46.526+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05e5f5f209db
+[2026-07-24T09:31:46.598+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T09:31:46.598+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T09:31:46.608+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T09:31:46.608+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T09:31:46.615+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T09:31:54.613+0000] {subprocess.py:106} INFO - {
+[2026-07-24T09:31:54.617+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T09:31:54.617+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T09:31:54.617+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T09:31:54.618+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T09:31:54.619+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T09:31:54.620+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T09:31:54.620+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T09:31:54.620+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T09:31:54.620+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T09:31:54.620+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T09:31:54.621+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T09:31:54.621+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T09:31:54.621+0000] {subprocess.py:106} INFO - }
+[2026-07-24T09:31:54.622+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T09:31:54.654+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T09:31:54.654+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T093146, end_date=20260724T093154
+[2026-07-24T09:31:54.720+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T09:31:54.747+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T09:31:54.750+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:14:22.737+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:14:22.757+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:22.767+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:22.767+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:14:22.779+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:14:22.784+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpkggmzmhf']
+[2026-07-24T10:14:22.785+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T10:14:22.786+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:14:22.786+0000] {standard_task_runner.py:72} INFO - Started process 210 to run task
+[2026-07-24T10:14:22.820+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 11eea0c5cb97
+[2026-07-24T10:14:22.880+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:14:22.880+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:14:22.890+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T10:14:22.891+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T10:14:22.897+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T10:14:23.102+0000] {subprocess.py:106} INFO - {
+[2026-07-24T10:14:23.102+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T10:14:23.103+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T10:14:23.103+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T10:14:23.103+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T10:14:23.104+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T10:14:23.104+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T10:14:23.104+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T10:14:23.104+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T10:14:23.104+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T10:14:23.105+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T10:14:23.106+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T10:14:23.106+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T10:14:23.106+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T10:14:23.106+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T10:14:23.106+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T10:14:23.107+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T10:14:23.107+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T10:14:23.107+0000] {subprocess.py:106} INFO - }
+[2026-07-24T10:14:23.109+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T10:14:23.144+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:14:23.145+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T101422, end_date=20260724T101423
+[2026-07-24T10:14:23.200+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:14:23.230+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:14:23.235+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:37:49.168+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:37:49.187+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:49.195+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:49.195+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:37:49.210+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:37:49.215+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmphxe1z2_g']
+[2026-07-24T10:37:49.217+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-24T10:37:49.217+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:37:49.218+0000] {standard_task_runner.py:72} INFO - Started process 204 to run task
+[2026-07-24T10:37:49.255+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 4d7558f7fc1a
+[2026-07-24T10:37:49.316+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:37:49.317+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:37:49.326+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-24T10:37:49.327+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-24T10:37:49.333+0000] {subprocess.py:99} INFO - Output:
+[2026-07-24T10:37:56.593+0000] {subprocess.py:106} INFO - {
+[2026-07-24T10:37:56.596+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-24T10:37:56.597+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-24T10:37:56.597+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-24T10:37:56.597+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-24T10:37:56.598+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-24T10:37:56.599+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO -     },
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-24T10:37:56.600+0000] {subprocess.py:106} INFO - }
+[2026-07-24T10:37:56.602+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-24T10:37:56.796+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:37:56.797+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T103749, end_date=20260724T103756
+[2026-07-24T10:37:56.923+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:37:56.939+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:37:56.946+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-25T14:28:56.085+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-25T14:28:56.103+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:56.110+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:56.110+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-25T14:28:56.122+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-07-25T14:28:56.126+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpujplhxg6']
+[2026-07-25T14:28:56.128+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-07-25T14:28:56.128+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-25T14:28:56.129+0000] {standard_task_runner.py:72} INFO - Started process 204 to run task
+[2026-07-25T14:28:56.163+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05256ee4a620
+[2026-07-25T14:28:56.228+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-25T14:28:56.228+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-25T14:28:56.238+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-07-25T14:28:56.239+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-07-25T14:28:56.245+0000] {subprocess.py:99} INFO - Output:
+[2026-07-25T14:28:56.463+0000] {subprocess.py:106} INFO - {
+[2026-07-25T14:28:56.464+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-07-25T14:28:56.464+0000] {subprocess.py:106} INFO -     "config": {
+[2026-07-25T14:28:56.464+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-07-25T14:28:56.465+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-07-25T14:28:56.465+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-07-25T14:28:56.465+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-07-25T14:28:56.465+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-07-25T14:28:56.466+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-07-25T14:28:56.466+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-07-25T14:28:56.466+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-07-25T14:28:56.466+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-07-25T14:28:56.466+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-07-25T14:28:56.467+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-07-25T14:28:56.468+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-07-25T14:28:56.468+0000] {subprocess.py:106} INFO -     },
+[2026-07-25T14:28:56.468+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-07-25T14:28:56.468+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-07-25T14:28:56.468+0000] {subprocess.py:106} INFO - }
+[2026-07-25T14:28:56.471+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-07-25T14:28:56.503+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-25T14:28:56.504+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260725T142856, end_date=20260725T142856
+[2026-07-25T14:28:56.585+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-25T14:28:56.614+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-25T14:28:56.618+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T03:45:18.592+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T03:45:18.613+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:18.622+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:18.622+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T03:45:18.634+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-10-01T03:45:18.639+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpsh4m9izg']
+[2026-10-01T03:45:18.641+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-10-01T03:45:18.641+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=202) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T03:45:18.642+0000] {standard_task_runner.py:72} INFO - Started process 203 to run task
+[2026-10-01T03:45:18.683+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 9c7342376556
+[2026-10-01T03:45:18.748+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T03:45:18.748+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T03:45:18.758+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-10-01T03:45:18.759+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-10-01T03:45:18.767+0000] {subprocess.py:99} INFO - Output:
+[2026-10-01T03:45:28.812+0000] {subprocess.py:106} INFO - {
+[2026-10-01T03:45:28.815+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-10-01T03:45:28.815+0000] {subprocess.py:106} INFO -     "config": {
+[2026-10-01T03:45:28.815+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-10-01T03:45:28.816+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T03:45:28.817+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -     },
+[2026-10-01T03:45:28.818+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-10-01T03:45:28.819+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-10-01T03:45:28.819+0000] {subprocess.py:106} INFO - }
+[2026-10-01T03:45:28.821+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-10-01T03:45:28.857+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T03:45:28.858+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T034518, end_date=20261001T034528
+[2026-10-01T03:45:28.944+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T03:45:28.968+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T03:45:28.971+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T16:19:00.122+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T16:19:00.141+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:19:00.148+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:19:00.148+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T16:19:00.160+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-10-01T16:19:00.165+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmprbuvdlji']
+[2026-10-01T16:19:00.167+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-10-01T16:19:00.167+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=269) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T16:19:00.167+0000] {standard_task_runner.py:72} INFO - Started process 270 to run task
+[2026-10-01T16:19:00.204+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host f7ca9e84c53b
+[2026-10-01T16:19:00.271+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T16:19:00.271+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T16:19:00.284+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-10-01T16:19:00.284+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-10-01T16:19:00.291+0000] {subprocess.py:99} INFO - Output:
+[2026-10-01T16:19:00.548+0000] {subprocess.py:106} INFO - {
+[2026-10-01T16:19:00.548+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-10-01T16:19:00.549+0000] {subprocess.py:106} INFO -     "config": {
+[2026-10-01T16:19:00.549+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-10-01T16:19:00.549+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-10-01T16:19:00.549+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-10-01T16:19:00.550+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-10-01T16:19:00.550+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-10-01T16:19:00.550+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-10-01T16:19:00.550+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-10-01T16:19:00.550+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-10-01T16:19:00.551+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO -     },
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-10-01T16:19:00.552+0000] {subprocess.py:106} INFO - }
+[2026-10-01T16:19:00.555+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-10-01T16:19:00.600+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T16:19:00.601+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T161900, end_date=20261001T161900
+[2026-10-01T16:19:00.665+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T16:19:00.705+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T16:19:00.709+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T19:06:48.723+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T19:06:48.750+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:48.768+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:48.768+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T19:06:48.786+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): cdc_curl> on 2026-03-02 00:00:00+00:00
+[2026-10-01T19:06:48.795+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'cdc_curl', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp0oo_r_2w']
+[2026-10-01T19:06:48.797+0000] {standard_task_runner.py:105} INFO - Job 4: Subtask cdc_curl
+[2026-10-01T19:06:48.797+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=274) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T19:06:48.798+0000] {standard_task_runner.py:72} INFO - Started process 275 to run task
+[2026-10-01T19:06:48.840+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.cdc_curl scheduled__2026-03-02T00:00:00+00:00 [running]> on host 7cf5f159a957
+[2026-10-01T19:06:48.912+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='cdc_curl' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T19:06:48.912+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T19:06:48.921+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-10-01T19:06:48.922+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'curl -s -X POST http://kafka-connect:8083/connectors -H "Content-Type: application/json" -d @/opt/***/dags/helper/debezium_connector/pipeline.json | python3 -m json.tool']
+[2026-10-01T19:06:48.933+0000] {subprocess.py:99} INFO - Output:
+[2026-10-01T19:06:49.171+0000] {subprocess.py:106} INFO - {
+[2026-10-01T19:06:49.172+0000] {subprocess.py:106} INFO -     "name": "my-cdc-connector",
+[2026-10-01T19:06:49.173+0000] {subprocess.py:106} INFO -     "config": {
+[2026-10-01T19:06:49.173+0000] {subprocess.py:106} INFO -         "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+[2026-10-01T19:06:49.173+0000] {subprocess.py:106} INFO -         "database.hostname": "postgres_service",
+[2026-10-01T19:06:49.174+0000] {subprocess.py:106} INFO -         "database.port": "5432",
+[2026-10-01T19:06:49.174+0000] {subprocess.py:106} INFO -         "database.user": "source_user",
+[2026-10-01T19:06:49.174+0000] {subprocess.py:106} INFO -         "database.password": "source_password",
+[2026-10-01T19:06:49.175+0000] {subprocess.py:106} INFO -         "database.dbname": "source_db",
+[2026-10-01T19:06:49.175+0000] {subprocess.py:106} INFO -         "database.server.name": "source_db",
+[2026-10-01T19:06:49.176+0000] {subprocess.py:106} INFO -         "table.include.list": "public.my_test",
+[2026-10-01T19:06:49.178+0000] {subprocess.py:106} INFO -         "plugin.name": "pgoutput",
+[2026-10-01T19:06:49.178+0000] {subprocess.py:106} INFO -         "topic.prefix": "cdc",
+[2026-10-01T19:06:49.179+0000] {subprocess.py:106} INFO -         "snapshot.mode": "initial",
+[2026-10-01T19:06:49.179+0000] {subprocess.py:106} INFO -         "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T19:06:49.179+0000] {subprocess.py:106} INFO -         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -         "key.converter.schemas.enable": "false",
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -         "value.converter.schemas.enable": "false",
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -         "decimal.handling.mode": "string",
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -         "name": "my-cdc-connector"
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -     },
+[2026-10-01T19:06:49.180+0000] {subprocess.py:106} INFO -     "tasks": [],
+[2026-10-01T19:06:49.181+0000] {subprocess.py:106} INFO -     "type": "source"
+[2026-10-01T19:06:49.181+0000] {subprocess.py:106} INFO - }
+[2026-10-01T19:06:49.183+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-10-01T19:06:49.231+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T19:06:49.232+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=cdc_curl, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T190648, end_date=20261001T190649
+[2026-10-01T19:06:49.293+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T19:06:49.338+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T19:06:49.341+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,52 @@
+services:
+
+  # ─── Schema Registry ──────────────────────────────────────────────────────
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.6.0
+    container_name: schema-registry
+    # depends_on:
+    #   - kafka-1
+    #   - kafka-2
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-1:9092,kafka-2:9092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+      SCHEMA_REGISTRY_KAFKASTORE_TOPIC_REPLICATION_FACTOR: 2
+    ports:
+      - "8081:8081"
+    networks:
+      - networkDebeziumCDC
+
+
+  # ─── Kafka Connect + Debezium ─────────────────────────────────────────────
+  kafka-connect:
+    image: debezium/connect:2.6
+    container_name: kafka-connect
+    depends_on:
+      # - kafka-1
+      # - kafka-2
+      - schema-registry
+      #- postgres_container
+    environment:
+      BOOTSTRAP_SERVERS: kafka-1:9092,kafka-2:9092
+      GROUP_ID: kafka-connect-group
+      CONFIG_STORAGE_TOPIC: connect-configs
+      OFFSET_STORAGE_TOPIC: connect-offsets
+      STATUS_STORAGE_TOPIC: connect-status
+      CONFIG_STORAGE_REPLICATION_FACTOR: 2
+      OFFSET_STORAGE_REPLICATION_FACTOR: 2
+      STATUS_STORAGE_REPLICATION_FACTOR: 2
+      KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      KEY_CONVERTER_SCHEMAS_ENABLE: "false"
+      VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+    ports:
+      - "8084:8083"
+    networks:
+      - networkDebeziumCDC
+
+
+networks:
+  networkDebeziumCDC:
+    name: networkDebeziumCDC_project3
+    external: true

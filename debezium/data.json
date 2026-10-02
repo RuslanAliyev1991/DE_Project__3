@@ -1,0 +1,178 @@
+{
+    "id": 1
+}	
+{
+    "before": null,
+    "after": {
+        "id": 1,
+        "name": "Ruslan",
+        "created_at": 1784989737383963,
+        "updated_at": 1784989737383965
+    },
+    "source": {
+        "version": "2.6.2.Final",
+        "connector": "postgresql",
+        "name": "cdc",
+        "ts_ms": 1784989748387,
+        "snapshot": "false",
+        "db": "source_db",
+        "sequence": "[null,\"26371888\"]",
+        "ts_us": 1784989748387105,
+        "ts_ns": 1784989748387105000,
+        "schema": "public",
+        "table": "my_test",
+        "txId": 735,
+        "lsn": 26371888,
+        "xmin": null
+    },
+    "op": "c",
+    "ts_ms": 1784989748771,
+    "ts_us": 1784989748771229,
+    "ts_ns": 1784989748771229655,
+    "transaction": null
+}
+
+
+{
+    "id": 2
+}	
+{
+    "before": null,
+    "after": {
+        "id": 2,
+        "name": "cavid",
+        "created_at": 1784989740384456,
+        "updated_at": 1784989740384458
+    },
+    "source": {
+        "version": "2.6.2.Final",
+        "connector": "postgresql",
+        "name": "cdc",
+        "ts_ms": 1784989748387,
+        "snapshot": "false",
+        "db": "source_db",
+        "sequence": "[null,\"26650520\"]",
+        "ts_us": 1784989748387105,
+        "ts_ns": 1784989748387105000,
+        "schema": "public",
+        "table": "my_test",
+        "txId": 735,
+        "lsn": 26650520,
+        "xmin": null
+    },
+    "op": "c",
+    "ts_ms": 1784989748774,
+    "ts_us": 1784989748774173,
+    "ts_ns": 1784989748774173684,
+    "transaction": null
+}
+
+
+{
+    "id": 3
+}	
+{
+    "before": null,
+    "after": {
+        "id": 3,
+        "name": "samir",
+        "created_at": 1784989742384931,
+        "updated_at": 1784989742384933
+    },
+    "source": {
+        "version": "2.6.2.Final",
+        "connector": "postgresql",
+        "name": "cdc",
+        "ts_ms": 1784989748387,
+        "snapshot": "false",
+        "db": "source_db",
+        "sequence": "[null,\"26650672\"]",
+        "ts_us": 1784989748387105,
+        "ts_ns": 1784989748387105000,
+        "schema": "public",
+        "table": "my_test",
+        "txId": 735,
+        "lsn": 26650672,
+        "xmin": null
+    },
+    "op": "c",
+    "ts_ms": 1784989748774,
+    "ts_us": 1784989748774866,
+    "ts_ns": 1784989748774866239,
+    "transaction": null
+}
+
+
+{
+    "id": 2
+}	
+
+{
+    "before": null,
+    "after": {
+        "id": 2,
+        "name": "cavid updated",
+        "created_at": 1784989740384456,
+        "updated_at": 1784989745386027
+    },
+    "source": {
+        "version": "2.6.2.Final",
+        "connector": "postgresql",
+        "name": "cdc",
+        "ts_ms": 1784989748387,
+        "snapshot": "false",
+        "db": "source_db",
+        "sequence": "[null,\"26650824\"]",
+        "ts_us": 1784989748387105,
+        "ts_ns": 1784989748387105000,
+        "schema": "public",
+        "table": "my_test",
+        "txId": 735,
+        "lsn": 26650824,
+        "xmin": null
+    },
+    "op": "u",
+    "ts_ms": 1784989748775,
+    "ts_us": 1784989748775321,
+    "ts_ns": 1784989748775321334,
+    "transaction": null
+}
+
+
+
+{
+    "id": 3
+}	
+{
+    "before": {
+        "id": 3,
+        "name": "",
+        "created_at": 0,
+        "updated_at": 0
+    },
+    "after": null,
+    "source": {
+        "version": "2.6.2.Final",
+        "connector": "postgresql",
+        "name": "cdc",
+        "ts_ms": 1784989748387,
+        "snapshot": "false",
+        "db": "source_db",
+        "sequence": "[null,\"26650992\"]",
+        "ts_us": 1784989748387105,
+        "ts_ns": 1784989748387105000,
+        "schema": "public",
+        "table": "my_test",
+        "txId": 735,
+        "lsn": 26650992,
+        "xmin": null
+    },
+    "op": "d",
+    "ts_ms": 1784989748775,
+    "ts_us": 1784989748775816,
+    "ts_ns": 1784989748775816999,
+    "transaction": null
+}
+{
+    "id": 3
+}	null

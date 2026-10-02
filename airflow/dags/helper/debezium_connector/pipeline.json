@@ -1,0 +1,21 @@
+{
+  "name": "my-cdc-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres_service",
+    "database.port": "5432",
+    "database.user": "source_user",
+    "database.password": "source_password",
+    "database.dbname": "source_db",
+    "database.server.name": "source_db",
+    "table.include.list": "public.my_test",
+    "plugin.name": "pgoutput",
+    "topic.prefix": "cdc",
+    "snapshot.mode": "initial",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "decimal.handling.mode": "string"
+  }
+}

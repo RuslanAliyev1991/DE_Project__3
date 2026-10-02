@@ -1,0 +1,107 @@
+x-airflow-template:
+  &airflow_common
+  image: ${AIRFLOW_IMAGE_NAME}
+  env_file: .env
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./files:/opt/airflow/files    
+    - ./logs:/opt/airflow/logs      
+    - ./config:/opt/airflow/config  
+    - ./plugins:/opt/airflow/plugins
+  networks:
+    - networkDebeziumCDC
+  user: "${AIRFLOW_UID:-50000}:0"
+  restart: always
+
+
+
+services:
+  postgres_airflow_service:
+    image: ${POSTGRES_IMAGE_NAME}
+    container_name: postgres_airflow_container
+    environment: 
+      POSTGRES_DB: ${POSTGRES_DB} 
+      POSTGRES_USER: ${POSTGRES_USER} 
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - airflow_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-airflow} -d ${POSTGRES_DB:-airflow}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - networkDebeziumCDC
+    restart: always
+
+
+  airflow-init:
+    <<: *airflow_common
+    #entrypoint: /bin/bash
+    container_name: airflow-init
+    depends_on:
+      postgres_airflow_service:
+        condition: service_healthy 
+    user: "0:0"  
+    command: >
+      bash -c "
+      airflow db migrate && chown -R 50000:1000 /opt/airflow && chmod -R 775 /opt/airflow &&
+      airflow users create --username ${AIRFLOW_WWM_USER_USERNAME:-airflow} --password ${AIRFLOW_WWM_USER_PASSWORD:-airflow} --firstname Allahverdi --lastname Hajiyev --role Admin --email admin@local
+      "
+    restart: "no"
+
+
+  airflow-webserver:
+    <<: *airflow_common
+    command: webserver
+    container_name: airflow-webserver
+    environment:
+      # UI-de yaratmadan birbasa burda yaradiriq:
+      AIRFLOW_CONN_DEBEZIUM_CONNECTION: http://kafka-connect:8083
+      AIRFLOW_CONN_POSTGRES_CONNECTION: postgresql://source_user:source_password@postgres_container/source_db
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres_airflow_service:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  airflow-scheduler:
+    <<: *airflow_common
+    command: scheduler
+    container_name: airflow-scheduler
+    environment:
+      AIRFLOW_CONN_DEBEZIUM_CONNECTION: http://kafka-connect:8083
+      # PostgresHook(postgres_conn_id="POSTGRES_CONNECTION")
+      # conn_id='postgres_connection'. Burada AIRFLOW_CONN_ prefixdir
+      AIRFLOW_CONN_POSTGRES_CONNECTION: postgresql://source_user:source_password@postgres_container/source_db
+    depends_on:
+      postgres_airflow_service:
+        condition: service_healthy
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+
+volumes:
+  airflow_pg_data:
+    name: DebeziumCDC_project3_airflowData
+networks:
+  networkDebeziumCDC:
+    name: networkDebeziumCDC_project3
+    external: true

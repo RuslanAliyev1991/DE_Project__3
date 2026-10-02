@@ -1,0 +1,378 @@
+[2026-07-18T13:48:03.889+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-18T13:48:03.903+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-18T13:48:03.909+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-18T13:48:03.909+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-18T13:48:03.926+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-18T13:48:03.938+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpgb0tw3vt']
+[2026-07-18T13:48:03.942+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-18T13:48:03.942+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-18T13:48:03.942+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-18T13:48:03.998+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host d64076e39d36
+[2026-07-18T13:48:04.088+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-18T13:48:04.089+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-18T13:48:04.103+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-18T13:48:04.111+0000] {http.py:140} INFO - Poking: /
+[2026-07-18T13:48:04.112+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-18T13:48:04.187+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-18T13:48:04.199+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-18T13:48:04.199+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260718T134803, end_date=20260718T134804
+[2026-07-18T13:48:04.277+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-18T13:48:04.306+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-18T13:48:04.309+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T11:16:35.436+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T11:16:35.455+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:16:35.463+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:16:35.464+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T11:16:35.478+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-21T11:16:35.488+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpfi97s0j0']
+[2026-07-21T11:16:35.490+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-21T11:16:35.493+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T11:16:35.493+0000] {standard_task_runner.py:72} INFO - Started process 199 to run task
+[2026-07-21T11:16:35.541+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 6ee605b05b09
+[2026-07-21T11:16:35.623+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T11:16:35.624+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T11:16:35.665+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-21T11:16:35.675+0000] {http.py:140} INFO - Poking: /
+[2026-07-21T11:16:35.676+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-21T11:16:35.776+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-21T11:16:35.791+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T11:16:35.791+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T111635, end_date=20260721T111635
+[2026-07-21T11:16:35.831+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T11:16:35.861+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T11:16:35.864+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T11:36:23.284+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T11:36:23.298+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:36:23.304+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T11:36:23.305+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T11:36:23.316+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-21T11:36:23.322+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpyfeurros']
+[2026-07-21T11:36:23.324+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-21T11:36:23.325+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T11:36:23.326+0000] {standard_task_runner.py:72} INFO - Started process 198 to run task
+[2026-07-21T11:36:23.363+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host b9659a24e611
+[2026-07-21T11:36:23.433+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T11:36:23.434+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T11:36:23.467+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-21T11:36:23.476+0000] {http.py:140} INFO - Poking: /
+[2026-07-21T11:36:23.477+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-21T11:36:23.565+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-21T11:36:23.576+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T11:36:23.577+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T113623, end_date=20260721T113623
+[2026-07-21T11:36:23.619+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T11:36:23.646+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T11:36:23.649+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T12:15:05.954+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:15:05.968+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:05.974+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:15:05.974+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:15:05.986+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:15:05.994+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=302) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:15:05.995+0000] {standard_task_runner.py:72} INFO - Started process 303 to run task
+[2026-07-21T12:15:05.996+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpm3d0lmm1']
+[2026-07-21T12:15:05.998+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-21T12:15:06.041+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host e045af74193e
+[2026-07-21T12:15:06.126+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:15:06.127+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:15:06.156+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-21T12:15:06.167+0000] {http.py:140} INFO - Poking: /
+[2026-07-21T12:15:06.168+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-21T12:15:06.252+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-21T12:15:06.265+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:15:06.266+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T121505, end_date=20260721T121506
+[2026-07-21T12:15:06.329+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:15:06.356+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:15:06.359+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-21T12:20:44.178+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T12:20:44.197+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:20:44.205+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-21T12:20:44.205+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-21T12:20:44.220+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-21T12:20:44.230+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpx16u_uke']
+[2026-07-21T12:20:44.231+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-21T12:20:44.233+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-21T12:20:44.233+0000] {standard_task_runner.py:72} INFO - Started process 199 to run task
+[2026-07-21T12:20:44.275+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 51918a79e420
+[2026-07-21T12:20:44.350+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-21T12:20:44.350+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-21T12:20:44.362+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-21T12:20:44.371+0000] {http.py:140} INFO - Poking: /
+[2026-07-21T12:20:44.372+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-21T12:20:44.444+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-21T12:20:44.456+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-21T12:20:44.457+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260721T122044, end_date=20260721T122044
+[2026-07-21T12:20:44.527+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-21T12:20:44.550+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T12:20:44.570+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T05:14:14.611+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T05:14:14.632+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:14.639+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T05:14:14.640+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T05:14:14.655+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-22T05:14:14.662+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpcjz2r4pe']
+[2026-07-22T05:14:14.664+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-22T05:14:14.665+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=203) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T05:14:14.666+0000] {standard_task_runner.py:72} INFO - Started process 205 to run task
+[2026-07-22T05:14:14.746+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 304f8cefaac6
+[2026-07-22T05:14:14.853+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T05:14:14.854+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T05:14:14.889+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-22T05:14:14.900+0000] {http.py:140} INFO - Poking: /
+[2026-07-22T05:14:14.902+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-22T05:14:15.001+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-22T05:14:15.012+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T05:14:15.012+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T051414, end_date=20260722T051415
+[2026-07-22T05:14:15.085+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T05:14:15.132+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T05:14:15.136+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T08:08:43.213+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T08:08:43.232+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:43.240+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T08:08:43.241+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T08:08:43.260+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-22T08:08:43.267+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpqwkegzpk']
+[2026-07-22T08:08:43.269+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-22T08:08:43.271+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T08:08:43.272+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-22T08:08:43.316+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 00ae91de1981
+[2026-07-22T08:08:43.391+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T08:08:43.391+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T08:08:43.401+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-22T08:08:43.409+0000] {http.py:140} INFO - Poking: /
+[2026-07-22T08:08:43.410+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-22T08:08:43.480+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-22T08:08:43.491+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T08:08:43.491+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T080843, end_date=20260722T080843
+[2026-07-22T08:08:43.526+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T08:08:43.553+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T08:08:43.556+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-22T09:14:24.187+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-22T09:14:24.203+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:24.210+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-22T09:14:24.211+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-22T09:14:24.223+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-22T09:14:24.229+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpn1f67zqm']
+[2026-07-22T09:14:24.231+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-22T09:14:24.233+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-22T09:14:24.233+0000] {standard_task_runner.py:72} INFO - Started process 199 to run task
+[2026-07-22T09:14:24.271+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host c23decc08e67
+[2026-07-22T09:14:24.341+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-22T09:14:24.342+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-22T09:14:24.364+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-22T09:14:24.373+0000] {http.py:140} INFO - Poking: /
+[2026-07-22T09:14:24.374+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-22T09:14:24.440+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-22T09:14:24.451+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-22T09:14:24.451+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260722T091424, end_date=20260722T091424
+[2026-07-22T09:14:24.487+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-22T09:14:24.513+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-22T09:14:24.516+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T05:05:43.624+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T05:05:43.640+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:43.646+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T05:05:43.647+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T05:05:43.660+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T05:05:43.666+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpn57kp0p6']
+[2026-07-24T05:05:43.668+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-24T05:05:43.670+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=195) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T05:05:43.670+0000] {standard_task_runner.py:72} INFO - Started process 198 to run task
+[2026-07-24T05:05:43.708+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 155c7c53ba3f
+[2026-07-24T05:05:43.780+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T05:05:43.781+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T05:05:43.814+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T05:05:43.823+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T05:05:43.824+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T05:05:43.903+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T05:05:43.911+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T05:05:43.911+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T050543, end_date=20260724T050543
+[2026-07-24T05:05:43.964+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T05:05:43.986+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T05:05:43.990+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:08:47.621+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:08:47.639+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:47.646+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:08:47.646+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:08:47.661+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:08:47.666+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpeivagjcn']
+[2026-07-24T08:08:47.668+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-24T08:08:47.668+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:08:47.669+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-24T08:08:47.705+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 958577a88513
+[2026-07-24T08:08:47.784+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:08:47.785+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:08:47.811+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T08:08:47.819+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T08:08:47.820+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T08:08:47.894+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T08:08:47.905+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:08:47.905+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T080847, end_date=20260724T080847
+[2026-07-24T08:08:47.962+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:08:47.989+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:08:47.992+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T08:31:30.735+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T08:31:30.751+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:30.758+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T08:31:30.758+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T08:31:30.775+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T08:31:30.783+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp7ptgtfj5']
+[2026-07-24T08:31:30.785+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-24T08:31:30.787+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T08:31:30.787+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-24T08:31:30.826+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host efd5a11a536a
+[2026-07-24T08:31:30.906+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T08:31:30.906+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T08:31:30.932+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T08:31:30.940+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T08:31:30.941+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T08:31:31.020+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T08:31:31.031+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T08:31:31.031+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T083130, end_date=20260724T083131
+[2026-07-24T08:31:31.081+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T08:31:31.104+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T08:31:31.107+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T09:31:45.430+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T09:31:45.448+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:45.455+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T09:31:45.456+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T09:31:45.473+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T09:31:45.480+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp2dl3xwwd']
+[2026-07-24T09:31:45.481+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-24T09:31:45.484+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=199) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T09:31:45.484+0000] {standard_task_runner.py:72} INFO - Started process 202 to run task
+[2026-07-24T09:31:45.520+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05e5f5f209db
+[2026-07-24T09:31:45.598+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T09:31:45.599+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T09:31:45.609+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T09:31:45.616+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T09:31:45.617+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T09:31:45.711+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T09:31:45.722+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T09:31:45.722+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T093145, end_date=20260724T093145
+[2026-07-24T09:31:45.778+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T09:31:45.809+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T09:31:45.815+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:14:21.665+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:14:21.681+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:21.687+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:14:21.687+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:14:21.699+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:14:21.704+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpr9uk4_86']
+[2026-07-24T10:14:21.706+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-24T10:14:21.708+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=198) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:14:21.709+0000] {standard_task_runner.py:72} INFO - Started process 199 to run task
+[2026-07-24T10:14:21.754+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 11eea0c5cb97
+[2026-07-24T10:14:21.954+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:14:21.955+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:14:22.009+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T10:14:22.017+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T10:14:22.018+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T10:14:22.089+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T10:14:22.098+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:14:22.099+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T101421, end_date=20260724T101422
+[2026-07-24T10:14:22.163+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:14:22.187+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:14:22.195+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-24T10:37:48.133+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-24T10:37:48.152+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:48.161+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-24T10:37:48.162+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-24T10:37:48.180+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-24T10:37:48.186+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpmaxboj68']
+[2026-07-24T10:37:48.188+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask debezium_sensor
+[2026-07-24T10:37:48.189+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=197) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-24T10:37:48.190+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-24T10:37:48.237+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 4d7558f7fc1a
+[2026-07-24T10:37:48.318+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-24T10:37:48.319+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-24T10:37:48.329+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-24T10:37:48.336+0000] {http.py:140} INFO - Poking: /
+[2026-07-24T10:37:48.337+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-24T10:37:48.420+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-24T10:37:48.429+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-24T10:37:48.429+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260724T103748, end_date=20260724T103748
+[2026-07-24T10:37:48.484+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-24T10:37:48.520+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-24T10:37:48.523+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-07-25T14:28:55.037+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-25T14:28:55.054+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:55.060+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-07-25T14:28:55.060+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-07-25T14:28:55.076+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-07-25T14:28:55.084+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpf194g75l']
+[2026-07-25T14:28:55.086+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-07-25T14:28:55.086+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=198) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-25T14:28:55.086+0000] {standard_task_runner.py:72} INFO - Started process 200 to run task
+[2026-07-25T14:28:55.122+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 05256ee4a620
+[2026-07-25T14:28:55.195+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-07-25T14:28:55.196+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-07-25T14:28:55.242+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-07-25T14:28:55.255+0000] {http.py:140} INFO - Poking: /
+[2026-07-25T14:28:55.256+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-07-25T14:28:55.344+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-07-25T14:28:55.355+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-07-25T14:28:55.356+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20260725T142855, end_date=20260725T142855
+[2026-07-25T14:28:55.420+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-07-25T14:28:55.441+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-07-25T14:28:55.444+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T03:45:17.515+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T03:45:17.532+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:17.538+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T03:45:17.538+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T03:45:17.550+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-10-01T03:45:17.555+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpm1fms7sd']
+[2026-10-01T03:45:17.556+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-10-01T03:45:17.557+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=191) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T03:45:17.557+0000] {standard_task_runner.py:72} INFO - Started process 194 to run task
+[2026-10-01T03:45:17.591+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 9c7342376556
+[2026-10-01T03:45:17.664+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T03:45:17.665+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T03:45:17.680+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-10-01T03:45:17.689+0000] {http.py:140} INFO - Poking: /
+[2026-10-01T03:45:17.691+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-10-01T03:45:17.825+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-01T03:45:17.839+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T03:45:17.840+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T034517, end_date=20261001T034517
+[2026-10-01T03:45:17.891+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T03:45:17.914+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T03:45:17.920+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T16:18:59.029+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T16:18:59.043+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:18:59.049+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T16:18:59.049+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T16:18:59.062+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-10-01T16:18:59.068+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmp023ih46p']
+[2026-10-01T16:18:59.070+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-10-01T16:18:59.071+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=263) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T16:18:59.071+0000] {standard_task_runner.py:72} INFO - Started process 266 to run task
+[2026-10-01T16:18:59.105+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host f7ca9e84c53b
+[2026-10-01T16:18:59.183+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T16:18:59.184+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T16:18:59.207+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-10-01T16:18:59.215+0000] {http.py:140} INFO - Poking: /connectors
+[2026-10-01T16:18:59.216+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-10-01T16:18:59.273+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-01T16:18:59.281+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T16:18:59.281+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T161859, end_date=20261001T161859
+[2026-10-01T16:18:59.325+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T16:18:59.351+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T16:18:59.354+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2026-10-01T19:06:47.496+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-10-01T19:06:47.512+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:47.518+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [queued]>
+[2026-10-01T19:06:47.518+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 4
+[2026-10-01T19:06:47.534+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): debezium_sensor> on 2026-03-02 00:00:00+00:00
+[2026-10-01T19:06:47.540+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'debezium_sensor', 'scheduled__2026-03-02T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_tasks.py', '--cfg-path', '/tmp/tmpjxpnwt9i']
+[2026-10-01T19:06:47.542+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask debezium_sensor
+[2026-10-01T19:06:47.545+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=268) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-10-01T19:06:47.546+0000] {standard_task_runner.py:72} INFO - Started process 270 to run task
+[2026-10-01T19:06:47.595+0000] {task_command.py:467} INFO - Running <TaskInstance: my_dag.debezium_sensor scheduled__2026-03-02T00:00:00+00:00 [running]> on host 7cf5f159a957
+[2026-10-01T19:06:47.675+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ruslan' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='debezium_sensor' AIRFLOW_CTX_EXECUTION_DATE='2026-03-02T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-02T00:00:00+00:00'
+[2026-10-01T19:06:47.676+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-10-01T19:06:47.725+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2026-10-01T19:06:47.740+0000] {http.py:140} INFO - Poking: /connectors
+[2026-10-01T19:06:47.741+0000] {base.py:84} INFO - Retrieving connection 'debezium_connection'
+[2026-10-01T19:06:47.829+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2026-10-01T19:06:47.840+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-10-01T19:06:47.841+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=debezium_sensor, run_id=scheduled__2026-03-02T00:00:00+00:00, execution_date=20260302T000000, start_date=20261001T190647, end_date=20261001T190647
+[2026-10-01T19:06:47.920+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-10-01T19:06:47.952+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-10-01T19:06:47.955+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
